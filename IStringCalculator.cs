@@ -8,7 +8,7 @@ namespace StringCalculator
 {
     public interface IStringCalculator
     {
-        public int add(string numbers);
+        public int add(NumberString numberstring);
         
         
     }
