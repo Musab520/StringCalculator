@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StringCalculator
+﻿namespace StringCalculator
 {
     public class NumberString
     {
@@ -13,14 +7,17 @@ namespace StringCalculator
         public NumberString(string numbers)
         {
             this.numbers = numbers;
+            this.numbers = numbers.Trim();
             if (numbers.StartsWith("//"))
             {
-                delimeter= numbers.Substring(2,3);
+                delimeter = ""+numbers[2];
+                this.numbers = numbers.Substring(4);
             }
             else
             {
-                delimeter=",";
+                delimeter = ",";
             }
+            this.numbers = numbers.Replace("\n", delimeter);
         }
     }
 }

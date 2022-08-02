@@ -11,8 +11,7 @@ namespace StringCalculator
         public static void Main()
         {
             IStringCalculator stringCalculator = new StringCalculatorKata();
-            int actual = 6;
-            int sum = stringCalculator.add(new NumberString("1,2,3"));
+            int sum = stringCalculator.add(new NumberString("-1,2,-3"));
         }
     }
 }

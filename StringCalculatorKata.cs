@@ -14,10 +14,25 @@ namespace StringCalculator
             numbers=numbers.Trim();
             numbers = numbers.Replace("\n", ",");
             string[] numbersArray = numbers.Split(numberstring.delimeter);
+            string negativeNumberCheck = "";
             int sum = 0;
             for (int i = 0; i < numbersArray.Length; i++)
             {
-                sum += int.TryParse("" + numbersArray[i], out int value) ? value : 0;
+               
+                int number= int.TryParse("" + numbersArray[i], out int value) ? value : 0;
+                if (number < 0)
+                {
+                    negativeNumberCheck += ""+numbersArray[i]+",";
+                }
+                if (number > 1000)
+                {
+                    number = 0;
+                }
+                sum +=number;
+            }
+            if (!string.IsNullOrEmpty(negativeNumberCheck))
+            {
+                throw new ArgumentException("Negatives not Allowed: "+negativeNumberCheck);
             }
             return sum;
         }
